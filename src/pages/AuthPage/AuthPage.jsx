@@ -4,7 +4,9 @@ import axios from 'axios'
 import { AuthContext } from "../../context/AuthContext";
 
 
+
 import './AuthPage.scss'
+
 
 
 const AuthPage = () => {
@@ -31,6 +33,7 @@ const AuthPage = () => {
                 headers: {
                     'Content-Type': 'application/json'
                 }
+                
             })
             history.push('/')
         }catch(error){
@@ -98,7 +101,7 @@ const AuthPage = () => {
                         <button
                          className="btn yellow darken-4" 
                          style={{marginRight: 10}}
-                        
+                    
                          onClick={loginHandler}
                          >
                             Войти
@@ -151,7 +154,7 @@ const AuthPage = () => {
         
          onClick={registerHandler}
          >
-            Войти
+            Создать аккаунт
         </button>
         <Link to="/login" className="btn-outline btn-reg">уже есть акаунт?</Link>
  
