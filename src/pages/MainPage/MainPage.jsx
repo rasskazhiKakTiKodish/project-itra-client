@@ -11,7 +11,7 @@ const MainPage = () => {
 
     const getTodo = useCallback( async () => {
         try{
-            await axios.get('https://projectitra1.herokuapp.com/api/todo', {
+            await axios.get('https://project-itra-1.herokuapp.com/api/todo', {
                 headers:{
                     'Content-Type': 'application/json'
                 },
@@ -26,7 +26,7 @@ const MainPage = () => {
     const createTodo = useCallback(async () => {
         if(!text) return null
         try{
-            await axios.post('https://projectitra1.herokuapp.com/api/todo/add', {text, userId}, {
+            await axios.post('https://project-itra-1.herokuapp.com/api/todo/add', {text, userId}, {
                 headers: {
                     'Content-Type': 'application/json'}
             })
@@ -42,7 +42,7 @@ const MainPage = () => {
 
     const removeTodos = useCallback( async (id) => {
         try{
-            await axios.delete(`https://projectitra1.herokuapp.com/api/todo/delete/${id}`, {id}, {
+            await axios.delete(`https://project-itra-1.herokuapp.com/api/todo/delete/${id}`, {id}, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -56,7 +56,7 @@ const MainPage = () => {
 
     const complitedTodo = useCallback (async (id) => {
         try {
-            await axios.put(`https://projectitra1.herokuapp.com/api/todo/complited/${id}`, {id}, {
+            await axios.put(`https://project-itra-1.herokuapp.com/api/todo/complited/${id}`, {id}, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -72,7 +72,7 @@ const MainPage = () => {
 
     const importantTodo = useCallback (async (id) => {
         try {
-            await axios.put(`https://projectitra1.herokuapp.com/api/todo/important/${id}`, {id}, {
+            await axios.put(`https://project-itra-1.herokuapp.com/api/todo/important/${id}`, {id}, {
                 headers: {
                     'Content-Type': 'application/json'
                 }

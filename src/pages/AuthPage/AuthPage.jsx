@@ -1,4 +1,4 @@
-import React, {useState, useContext} from "react";
+import React, {useState, useContext, useEffect} from "react";
 import {BrowserRouter as Router, Switch, Route, Link, useHistory} from "react-router-dom"
 import axios from 'axios'
 import { AuthContext } from "../../context/AuthContext";
@@ -10,14 +10,17 @@ import './AuthPage.scss'
 
 
 const AuthPage = () => {
-
     const history = useHistory()
   
     const [form, setForm] = useState({
+        username: '',
         email: '',
         password: ''
     })
     
+    useEffect (() => {
+        window.M.updateTextFields()
+    }, [])
 
     const {login} = useContext (AuthContext)
     
@@ -29,11 +32,10 @@ const AuthPage = () => {
 
     const registerHandler = async () => {
         try{
-            await axios.post('https://projectitra1.herokuapp.com/api/auth/registration', {...form}, {
+            await axios.post('https://project-itra-1.herokuapp.com/api/auth/registration', {...form}, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
-                
             })
             history.push('/')
         }catch(error){
@@ -43,7 +45,7 @@ const AuthPage = () => {
 
     const loginHandler = async () => {
         try{
-            await axios.post('https://projectitra1.herokuapp.com/api/auth/login', {...form}, {
+            await axios.post('https://project-itra-1.herokuapp.com/api/auth/login', {...form}, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -65,11 +67,23 @@ const AuthPage = () => {
                  <div className="col s6 offset-s3">
             <Route path="/login">
               <h1>Вход в аккаунт</h1>
-
                 <div className="card brown darken-1">
                     <div className="card-content white-text">
                         <span className="card-title">Авторизация</span>
                         <div>
+                            <div className="input-field">
+                                <input
+                                 placeholder="Введите username" 
+                                 id="username" 
+                                 type="text"
+                                 name="username"
+                                 className="yellow-input"
+                                 onChange={changeHandler}
+                                />
+                                    <label htmlFor="username">username</label>
+                            </div>
+
+                            
                             <div className="input-field">
                                 <input
                                  placeholder="Введите email" 
@@ -115,11 +129,25 @@ const AuthPage = () => {
 
         <Route path="/registration">
         <h3>Создать аккаунт</h3>
-
 <div className="card brown darken-1">
     <div className="card-content white-text">
         <span className="card-title">Регистрация</span>
         <div>
+
+
+            <div className="input-field">
+                <input
+                 placeholder="Введите username" 
+                 id="username" 
+                 type="text"
+                 name="username"
+                 className="yellow-input"
+                 onChange={changeHandler}
+                />
+                     <label htmlFor="username">username</label>
+            </div>
+
+
             <div className="input-field">
                 <input
                  placeholder="Введите email" 
