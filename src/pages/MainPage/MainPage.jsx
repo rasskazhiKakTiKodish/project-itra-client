@@ -11,7 +11,7 @@ const MainPage = () => {
 
     const getTodo = useCallback( async () => {
         try{
-            await axios.get('api/todo', {
+            await axios.get('https://projectitra1.herokuapp.com/api/todo', {
                 headers:{
                     'Content-Type': 'application/json'
                 },

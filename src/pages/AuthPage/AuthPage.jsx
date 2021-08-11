@@ -61,7 +61,7 @@ const AuthPage = () => {
                 <div className="auth-page">
                  <div className="col s6 offset-s3">
             <Route path="/login">
-              <h1>Вход в акаунт</h1>
+              <h1>Вход в аккаунт</h1>
 
                 <div className="card brown darken-1">
                     <div className="card-content white-text">
@@ -111,7 +111,7 @@ const AuthPage = () => {
         </Route>
 
         <Route path="/registration">
-        <h3>Создать акаунт</h3>
+        <h3>Создать аккаунт</h3>
 
 <div className="card brown darken-1">
     <div className="card-content white-text">
